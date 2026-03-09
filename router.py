@@ -9,10 +9,10 @@ router = APIRouter(prefix="/patients",tags=["Patients"])
 
 @router.post("/",response_model=PatientResponse)
 async def create_patient_endpoint(
-    full_name: str = Form("..."),
-    age: int = Form("..."),
-    phone_number: str = Form("..."),
-    doctor_id: int = Form("..."),
+    full_name: str = Form(...),
+    age: int = Form(...),
+    phone_number: str = Form(...),
+    doctor_id: int = Form(...),
     image: UploadFile = None,
     video: UploadFile = None,
     db: AsyncSession = Depends(get_db)
